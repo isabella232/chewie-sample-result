@@ -4,9 +4,9 @@
 
 
 
-<div class="notebook" id="staticInteractiveinternalService_jacksonipsum_v2">
+<div class="notebook" id="staticInteractiveoverview_hipsteripsum">
 
-  <div class="notebook__static-tutorial" data-tutorial="internalService_jacksonipsum_v2" data-is-quick-setup="true" data-link="https://yaas.github.io/chewie-sample-result/build/embedded.html#internalService_jacksonipsum_v2">
+  <div class="notebook__static-tutorial" data-tutorial="overview_hipsteripsum" data-is-quick-setup="true" data-link="https://yaas.github.io/chewie-sample-result/build/embedded.html#overview_hipsteripsum">
    
    
    <h3 id="get-access-token">Get access token</h3>
@@ -144,8 +144,8 @@
 
   </div>
 
-  <div id="notebookinternalService_jacksonipsum_v2">
-    <iframe style="min-height: 430px;" class="notebook__interactive-tutorial u-transition-all width-100 interactive-tutorial" src="" scrolling="no" frameBorder="0" id="internalService_jacksonipsum_v2"></iframe>
+  <div id="notebookoverview_hipsteripsum">
+    <iframe style="min-height: 430px;" class="notebook__interactive-tutorial u-transition-all width-100 interactive-tutorial" src="" scrolling="no" frameBorder="0" id="overview_hipsteripsum"></iframe>
   </div>
 
   <div class="notebook__loader">
@@ -154,7 +154,7 @@
 
 </div> <!-- ---
 ---
-id: internalService_jacksonipsum_v2
+id: overview_hipsteripsum
 title: 'Perform Simple CRUD Operations'
 type: 'Tutorial'
 service: 'Document'
