@@ -10,10 +10,10 @@
    
    
    <p>The following variables are used within this tutorial:</p>
-<pre class="highlight"><code class="hljs javascript">tenant = {{projectId}};
+<pre><code class="lang-javascript">tenant = {{projectId}};
 </code></pre>
-<pre class="highlight"><code class="hljs javascript"><span class="hljs-keyword">var</span> demo = [<span class="hljs-string">'great'</span>, <span class="hljs-string">'interactive'</span>];
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Notebooks are a '</span> + demo[<span class="hljs-number">0</span>] + <span class="hljs-string">' way to create '</span> + demo[<span class="hljs-number">1</span>] + <span class="hljs-string">' tutorials.'</span>);
+<pre><code class="lang-javascript">var demo = [&#39;great&#39;, &#39;interactive&#39;];
+console.log(&#39;Notebooks are a &#39; + demo[0] + &#39; way to create &#39; + demo[1] + &#39; tutorials.&#39;);
 </code></pre>
 
   </div>
