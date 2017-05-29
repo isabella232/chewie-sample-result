@@ -11,133 +11,133 @@
    
    <h3 id="get-access-token">Get access token</h3>
 <p>To perform any operations with specific service, you always need an access token. For this purpose create an API Client for oAuth2 service.</p>
-<pre><code class="lang-javascript">API.createClient(&#39;oAuth2Service&#39;,
-&#39;https://devportal.yaas.io/services/oauth2/b1/api.raml&#39;);
+<pre class="highlight"><code class="hljs javascript">API.createClient(<span class="hljs-string">'oAuth2Service'</span>,
+<span class="hljs-string">'https://devportal.yaas.io/services/oauth2/b1/api.raml'</span>);
 </code></pre>
 <p>Now get the token:</p>
-<pre><code class="lang-javascript">AccessToken = oAuth2Service.token.post({
-  &#39;client_id&#39; : &#39;en7kp4cbjgA2TuuihU3MxCEShMx5xaEF&#39;,
-  &#39;client_secret&#39;:&#39;63gNfrpSnQWKQXEO&#39;,
-  &#39;grant_type&#39; : &#39;client_credentials&#39;,
-    &#39;token_type&#39;: &#39;Bearer&#39;,
-  &#39;scope&#39;: &#39;hybris.tenant hybris.document_manage hybris.document_view&#39;
+<pre class="highlight"><code class="hljs javascript">AccessToken = oAuth2Service.token.post({
+  <span class="hljs-string">'client_id'</span> : <span class="hljs-string">'en7kp4cbjgA2TuuihU3MxCEShMx5xaEF'</span>,
+  <span class="hljs-string">'client_secret'</span>:<span class="hljs-string">'63gNfrpSnQWKQXEO'</span>,
+  <span class="hljs-string">'grant_type'</span> : <span class="hljs-string">'client_credentials'</span>,
+    <span class="hljs-string">'token_type'</span>: <span class="hljs-string">'Bearer'</span>,
+  <span class="hljs-string">'scope'</span>: <span class="hljs-string">'hybris.tenant hybris.document_manage hybris.document_view'</span>
 });
 </code></pre>
 <p>To make calls simpler and code cleaner, assign Id of returned object to a variable.</p>
-<pre><code class="lang-javascript">access_token = AccessToken.body.access_token;
+<pre class="highlight"><code class="hljs javascript">access_token = AccessToken.body.access_token;
 </code></pre>
 <h3 id="create-api-client-for-document-service">Create API client for Document service</h3>
-<pre><code class="lang-javascript">API.createClient(&#39;documentService&#39;,
-&#39;https://devportal.yaas.io/services/document/b2/api.raml&#39;);
+<pre class="highlight"><code class="hljs javascript">API.createClient(<span class="hljs-string">'documentService'</span>,
+<span class="hljs-string">'https://devportal.yaas.io/services/document/b2/api.raml'</span>);
 </code></pre>
 <h3 id="create-a-simple-object">Create a simple object</h3>
-<pre><code class="lang-javascript">comic_obj = documentService.tenant(&#39;itutorials&#39;).client(&#39;hybris.itutorials&#39;).data.type(&#39;comic&#39;).post({
-&#39;kind&#39;: &#39;History&#39;,
-&#39;name&#39;: &#39;Thorgal&#39;
+<pre class="highlight"><code class="hljs javascript">comic_obj = documentService.tenant(<span class="hljs-string">'itutorials'</span>).client(<span class="hljs-string">'hybris.itutorials'</span>).data.type(<span class="hljs-string">'comic'</span>).post({
+<span class="hljs-string">'kind'</span>: <span class="hljs-string">'History'</span>,
+<span class="hljs-string">'name'</span>: <span class="hljs-string">'Thorgal'</span>
 }, {
   headers: {
-    &#39;Authorization&#39;: &#39;Bearer &#39; + access_token,
-    &#39;Content-type&#39; : &#39;application/json&#39;
+    <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer '</span> + access_token,
+    <span class="hljs-string">'Content-type'</span> : <span class="hljs-string">'application/json'</span>
            }
         }
   )
 </code></pre>
 <p>To make calls simpler and code cleaner, assign Id of returned object to a variable.</p>
-<pre><code class="lang-javascript">id = comic_obj.body.id;
+<pre class="highlight"><code class="hljs javascript">id = comic_obj.body.id;
 </code></pre>
 <h3 id="retrieve-object-created-with-the-previous-step">Retrieve object created with the previous step</h3>
-<pre><code class="lang-javascript">documentService.tenant(&#39;itutorials&#39;).client(&#39;hybris.itutorials&#39;).data.type(&#39;comic&#39;).dataId(id).get(null, {
+<pre class="highlight"><code class="hljs javascript">documentService.tenant(<span class="hljs-string">'itutorials'</span>).client(<span class="hljs-string">'hybris.itutorials'</span>).data.type(<span class="hljs-string">'comic'</span>).dataId(id).get(<span class="hljs-literal">null</span>, {
   headers: {
-    &#39;Authorization&#39;: &#39;Bearer &#39; + access_token,
-    &#39;Content-type&#39; : &#39;application/json&#39;
+    <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer '</span> + access_token,
+    <span class="hljs-string">'Content-type'</span> : <span class="hljs-string">'application/json'</span>
            }
         }
   )
 </code></pre>
 <h3 id="update-an-object-with-additional-information">Update an object with additional information</h3>
 <p>Perform a partial update on the object:</p>
-<pre><code class="lang-javascript">documentService.tenant(&#39;itutorials&#39;).client(&#39;hybris.itutorials&#39;).data.type(&#39;comic&#39;).dataId(id).put({
- &#39;title&#39;: &#39;Child of the Stars&#39;
+<pre class="highlight"><code class="hljs javascript">documentService.tenant(<span class="hljs-string">'itutorials'</span>).client(<span class="hljs-string">'hybris.itutorials'</span>).data.type(<span class="hljs-string">'comic'</span>).dataId(id).put({
+ <span class="hljs-string">'title'</span>: <span class="hljs-string">'Child of the Stars'</span>
 }, {
   headers: {
-    &#39;Authorization&#39;: &#39;Bearer &#39; + access_token,
-    &#39;Content-type&#39; : &#39;application/json&#39;
+    <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer '</span> + access_token,
+    <span class="hljs-string">'Content-type'</span> : <span class="hljs-string">'application/json'</span>
   },
   query: {
-      &#39;partial&#39; : true
+      <span class="hljs-string">'partial'</span> : <span class="hljs-literal">true</span>
   }
 })
 </code></pre>
 <h3 id="retrieve-the-same-object-to-ensure-that-proper-information-is-updated">Retrieve the same object to ensure that proper information is updated</h3>
 <p>Get the object to make sure that it was updated. You can be sure it was as the <strong>modifiedAt</strong> date is also updated.</p>
-<pre><code class="lang-javascript">documentService.tenant(&#39;itutorials&#39;).client(&#39;hybris.itutorials&#39;).data.type(&#39;comic&#39;).dataId(id).get(null, {
+<pre class="highlight"><code class="hljs javascript">documentService.tenant(<span class="hljs-string">'itutorials'</span>).client(<span class="hljs-string">'hybris.itutorials'</span>).data.type(<span class="hljs-string">'comic'</span>).dataId(id).get(<span class="hljs-literal">null</span>, {
   headers: {
-    &#39;Authorization&#39;: &#39;Bearer &#39; + access_token,
-    &#39;Content-type&#39; : &#39;application/json&#39;
+    <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer '</span> + access_token,
+    <span class="hljs-string">'Content-type'</span> : <span class="hljs-string">'application/json'</span>
            }
         }
   )
 </code></pre>
 <h3 id="update-entire-object-with-new-information">Update entire object with new information</h3>
 <p>Now perform full update of the object:</p>
-<pre><code class="lang-javascript">documentService.tenant(&#39;itutorials&#39;).client(&#39;hybris.itutorials&#39;).data.type(&#39;comic&#39;).dataId(id).put({
-  &#39;name&#39;: &#39;Thorgal&#39;,
-  &#39;title&#39;: &#39;The Brand of the Exiles&#39;,
-  &#39;kind&#39;: &#39;History&#39;
+<pre class="highlight"><code class="hljs javascript">documentService.tenant(<span class="hljs-string">'itutorials'</span>).client(<span class="hljs-string">'hybris.itutorials'</span>).data.type(<span class="hljs-string">'comic'</span>).dataId(id).put({
+  <span class="hljs-string">'name'</span>: <span class="hljs-string">'Thorgal'</span>,
+  <span class="hljs-string">'title'</span>: <span class="hljs-string">'The Brand of the Exiles'</span>,
+  <span class="hljs-string">'kind'</span>: <span class="hljs-string">'History'</span>
 }, {
   headers: {
-    &#39;Authorization&#39;: &#39;Bearer &#39; + access_token,
-    &#39;Content-type&#39; : &#39;application/json&#39;
+    <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer '</span> + access_token,
+    <span class="hljs-string">'Content-type'</span> : <span class="hljs-string">'application/json'</span>
   }
 })
 </code></pre>
 <h3 id="retrieve-the-same-object-to-ensure-proper-information-is-replaced">Retrieve the same object to ensure proper information is replaced</h3>
-<pre><code class="lang-javascript">documentService.tenant(&#39;itutorials&#39;).client(&#39;hybris.itutorials&#39;).data.type(&#39;comic&#39;).dataId(id).get(null, {
+<pre class="highlight"><code class="hljs javascript">documentService.tenant(<span class="hljs-string">'itutorials'</span>).client(<span class="hljs-string">'hybris.itutorials'</span>).data.type(<span class="hljs-string">'comic'</span>).dataId(id).get(<span class="hljs-literal">null</span>, {
   headers: {
-    &#39;Authorization&#39;: &#39;Bearer &#39; + access_token,
-    &#39;Content-type&#39; : &#39;application/json&#39;
+    <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer '</span> + access_token,
+    <span class="hljs-string">'Content-type'</span> : <span class="hljs-string">'application/json'</span>
            }
         }
   )
 </code></pre>
 <h3 id="remove-a-single-attribute-from-an-object">Remove a single attribute from an object</h3>
-<pre><code class="lang-javascript">documentService.tenant(&#39;itutorials&#39;).client(&#39;hybris.itutorials&#39;).data.type(&#39;comic&#39;).dataId(id).attributeName(&#39;name&#39;).delete(null, {
+<pre class="highlight"><code class="hljs javascript">documentService.tenant(<span class="hljs-string">'itutorials'</span>).client(<span class="hljs-string">'hybris.itutorials'</span>).data.type(<span class="hljs-string">'comic'</span>).dataId(id).attributeName(<span class="hljs-string">'name'</span>).delete(<span class="hljs-literal">null</span>, {
     headers: {
-   &#39;Authorization&#39;: &#39;Bearer &#39; + access_token,
+   <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer '</span> + access_token,
   }
 })
 </code></pre>
 <h3 id="remove-an-entire-object">Remove an Entire Object</h3>
-<pre><code class="lang-javascript">documentService.tenant(&#39;itutorials&#39;).client(&#39;hybris.itutorials&#39;).data.type(&#39;comic&#39;).dataId(id).delete(null, {
+<pre class="highlight"><code class="hljs javascript">documentService.tenant(<span class="hljs-string">'itutorials'</span>).client(<span class="hljs-string">'hybris.itutorials'</span>).data.type(<span class="hljs-string">'comic'</span>).dataId(id).delete(<span class="hljs-literal">null</span>, {
     headers: {
-   &#39;Authorization&#39;: &#39;Bearer &#39; + access_token,
+   <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer '</span> + access_token,
   }
 })
 </code></pre>
 <h3 id="retrieve-a-deleted-object-to-ensure-it-is-really-deleted">Retrieve a deleted object to ensure it is really deleted</h3>
-<pre><code class="lang-javascript">documentService.tenant(&#39;itutorials&#39;).client(&#39;hybris.itutorials&#39;).data.type(&#39;comic&#39;).dataId(id).get(null, {
+<pre class="highlight"><code class="hljs javascript">documentService.tenant(<span class="hljs-string">'itutorials'</span>).client(<span class="hljs-string">'hybris.itutorials'</span>).data.type(<span class="hljs-string">'comic'</span>).dataId(id).get(<span class="hljs-literal">null</span>, {
   headers: {
-    &#39;Authorization&#39;: &#39;Bearer &#39; + access_token,
-    &#39;Content-type&#39; : &#39;application/json&#39;
+    <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer '</span> + access_token,
+    <span class="hljs-string">'Content-type'</span> : <span class="hljs-string">'application/json'</span>
            }
         }
   )
 </code></pre>
 <h3 id="create-a-simple-object-with-the-custom-id">Create a simple object with the custom ID</h3>
-<pre><code class="lang-javascript">documentService.tenant(&#39;itutorials&#39;).client(&#39;hybris.itutorials&#39;).data.type(&#39;comic&#39;).dataId(&#39;sampleId&#39;).post({
-&quot;kind&quot;: &quot;History&quot;,
-&quot;name&quot;: &quot;Thorgal&quot;
+<pre class="highlight"><code class="hljs javascript">documentService.tenant(<span class="hljs-string">'itutorials'</span>).client(<span class="hljs-string">'hybris.itutorials'</span>).data.type(<span class="hljs-string">'comic'</span>).dataId(<span class="hljs-string">'sampleId'</span>).post({
+<span class="hljs-string">"kind"</span>: <span class="hljs-string">"History"</span>,
+<span class="hljs-string">"name"</span>: <span class="hljs-string">"Thorgal"</span>
 }, {
   headers: {
-    &#39;Authorization&#39;: &#39;Bearer &#39; + AccessToken.body.access_token,
-    &#39;Content-type&#39; : &#39;application/json&#39;
+    <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer '</span> + AccessToken.body.access_token,
+    <span class="hljs-string">'Content-type'</span> : <span class="hljs-string">'application/json'</span>
            }
         }
   )
 </code></pre>
-<pre><code class="lang-javascript">documentService.tenant(&#39;itutorials&#39;).client(&#39;hybris.itutorials&#39;).data.type(&#39;comic&#39;).dataId(&#39;sampleId&#39;).delete(null, {
+<pre class="highlight"><code class="hljs javascript">documentService.tenant(<span class="hljs-string">'itutorials'</span>).client(<span class="hljs-string">'hybris.itutorials'</span>).data.type(<span class="hljs-string">'comic'</span>).dataId(<span class="hljs-string">'sampleId'</span>).delete(<span class="hljs-literal">null</span>, {
     headers: {
-   &#39;Authorization&#39;: &#39;Bearer &#39; + access_token,
+   <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer '</span> + access_token,
   }
 })
 </code></pre>
