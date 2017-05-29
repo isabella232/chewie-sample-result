@@ -3,7 +3,7 @@
 	<title>Release Notes | YaaS Dev Portal</title>
 	<link href="https://yaas.github.io/chewie-sample-result/atom.xml" rel="self"/>
 	<link href="https://yaas.github.io/chewie-sample-result"/>
-	<updated>2017-05-23T13:52:45.496Z</updated>
+	<updated>2017-05-29T12:48:59.788Z</updated>
 	<id>https://yaas.github.io/chewie-sample-result/</id>
 	<author>
 		<name></name>
@@ -14,7 +14,7 @@
 		<entry>
 			<title>Hodor Ipsum v1</title>
 			<link href="https://yaas.github.io/chewie-sample-result/rn/services/hodoripsum/latest/972-06-24-Cedynia.html"/>
-			<content type="html">&lt;p&gt;&lt;img src=&quot;img/hodor.png&quot; alt=&quot;Hodor&quot;&gt;&lt;/p&gt;
+			<content type="html">&lt;p&gt;&lt;img src=&quot;img/hodor.png&quot; class=&quot;image-testing&quot; alt=&quot;Hodor&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor, hodor. Hodor hodor. Hodor. Hodor, hodor hodor... Hodor hodor hodor. Hodor, hodor... Hodor hodor hodor hodor hodor hodor hodor? Hodor hodor HODOR! Hodor hodor hodor... Hodor hodor hodor... Hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor - hodor - hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor.&lt;/p&gt;
 </content>
 			<updated>0972-06-24T00:00:00.000Z</updated>
